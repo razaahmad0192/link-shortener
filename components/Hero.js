@@ -9,7 +9,8 @@ function Hero() {
     const [alias, setAlias] = useState("")
     const [generated, setGenerated] = useState("")
     const [error, setError] = useState("")
-    
+    const [loading, setLoading] = useState(false)
+
 
     const generate = () => {
 
@@ -20,6 +21,7 @@ function Hero() {
             return
         }
         setError("") // clear previous errors
+         setLoading(true)  // start loading
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -36,7 +38,8 @@ function Hero() {
                 console.log(result)
                 setError(result.message) // display message instead of alert
             })
-            .catch(error => console.error(error));
+            .catch(error => console.error(error))
+            .finally(() => setLoading(false)) // stop loading
     }
 
     return (
@@ -134,8 +137,9 @@ function Hero() {
                         className='hover:bg-cyan-500 cursor-pointer px-8 md:w-40 w-full rounded-lg text-gray-100 text-lg font-semibold py-2.5 bg-cyan-400'
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                         disabled={loading}
                     >
-                        Shorten It
+                         {loading ? "Generating..." : "Shorten It"}
                     </motion.button>
 
                     {generated && (
