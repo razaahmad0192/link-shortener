@@ -3,7 +3,7 @@ import { React, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
+import LocalLinks from './LocalLinks'
 function Hero() {
     const [url, setUrl] = useState("")
     const [alias, setAlias] = useState("")
@@ -21,7 +21,7 @@ function Hero() {
             return
         }
         setError("") // clear previous errors
-         setLoading(true)  // start loading
+        setLoading(true)  // start loading
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -40,15 +40,22 @@ function Hero() {
             })
             .catch(error => console.error(error))
             .finally(() => setLoading(false)) // stop loading
+
+
+        const generatedLink = `${process.env.NEXT_PUBLIC_HOST}/${alias}`
+        const existingLinks = JSON.parse(localStorage.getItem("shortenedLinks") || "[]")
+        if (!existingLinks.includes(generatedLink)) {
+            localStorage.setItem("shortenedLinks", JSON.stringify([...existingLinks, generatedLink]))
+        }
     }
 
     return (
         <section className='min-h-[80vh]'>
 
             <div className='py-10 lg:px-10 md:container md:mx-auto flex md:flex-row justify-end flex-col-reverse md:items-center md:justify-between min-h-[80vh] overflow-hidden'>
-                
+
                 {/* Text Content */}
-                <motion.div 
+                <motion.div
                     className='flex flex-col gap-3 md:w-1/2'
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -72,7 +79,7 @@ function Hero() {
                         <p className='md:text-2xl text-md md:text-start text-center font-semibold text-gray-400'>
                             Build your brand's recognition and get detailed insights on how your links performing.
                         </p>
-                        <motion.span 
+                        <motion.span
                             className='md:text-start text-center'
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -137,17 +144,17 @@ function Hero() {
                         className='hover:bg-cyan-500 cursor-pointer px-8 md:w-40 w-full rounded-lg text-gray-100 text-lg font-semibold py-2.5 bg-cyan-400'
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                         disabled={loading}
+                        disabled={loading}
                     >
-                         {loading ? "Generating..." : "Shorten It"}
+                        {loading ? "Generating..." : "Shorten It"}
                     </motion.button>
 
                     {generated && (
                         <motion.div
-                            className="text-white flex flex-col gap-5 items-center"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
+                        className="text-white flex flex-col gap-5 items-center"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
                         >
                             <span className="font-bold text-lg"> Your Link</span>
                             <code className="text-sm">
@@ -157,6 +164,7 @@ function Hero() {
                             </code>
                         </motion.div>
                     )}
+                        <LocalLinks />
                 </div>
             </motion.div>
         </section>
