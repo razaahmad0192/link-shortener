@@ -73,7 +73,7 @@ function Hero() {
                                 onChange={e => { setUrl(e.target.value) }}
                                 value={url}
                                 className='py-3 rounded-md px-5 w-full bg-white ' placeholder='Shorten a link here...'
-                                type="text" />
+                                type="url" />
                         </div>
                         <div>
 
