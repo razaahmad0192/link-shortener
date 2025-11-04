@@ -69,7 +69,7 @@ function Hero() {
                         <div>
                             <label className="text-white font-bold" htmlFor="url">Enter Your URL</label>
                             <input
-                                id={url}
+                                id="url"
                                 onChange={e => { setUrl(e.target.value) }}
                                 value={url}
                                 className='py-3 rounded-md px-5 w-full bg-white ' placeholder='Shorten a link here...'
@@ -77,8 +77,9 @@ function Hero() {
                         </div>
                         <div>
 
-                            <label className="text-white font-bold" htmlFor="url">Enter an Alias</label>
+                            <label className="text-white font-bold" htmlFor="alias">Enter an Alias</label>
                             <input
+                            id="alias"
                                 onChange={e => { setAlias(e.target.value) }}
                                 value={alias}
                                 className='py-3 rounded-md px-5 w-full bg-white '
