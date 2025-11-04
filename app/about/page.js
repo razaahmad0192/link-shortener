@@ -1,9 +1,13 @@
 import React from 'react'
-
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import About from '@/components/About'
 function page() {
   return (
     <div>
-      I am about
+      <Navbar/>
+      <About/>
+      <Footer/>
     </div>
   )
 }

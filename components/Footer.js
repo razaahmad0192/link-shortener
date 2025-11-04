@@ -22,12 +22,7 @@ function Footer() {
                     <li><button className='cursor-pointer hover:text-gray-200 text-gray-400'>Branded Links</button></li>
                     <li><button className='cursor-pointer hover:text-gray-200 text-gray-400'>Analytics</button></li>
                 </ul>
-                <ul className='flex flex-col md:items-start items-center  gap-3 '>
-                    <li><button className='cursor-pointer hover:text-gray-200 text-white font-bold '>Resources</button></li>
-                    <li><button className='cursor-pointer hover:text-gray-200 text-gray-400'>Blog</button></li>
-                    <li><button className='cursor-pointer hover:text-gray-200 text-gray-400'>Developers</button></li>
-                    <li><button className='cursor-pointer hover:text-gray-200 text-gray-400'>Support</button></li>
-                </ul>
+                
                 <ul className='flex flex-col md:items-start items-center gap-3 '>
                     <li><button className='cursor-pointer hover:text-gray-200 text-white font-bold '>Company</button></li>
                     <li><button className='cursor-pointer hover:text-gray-200 text-gray-400'>About </button></li>
