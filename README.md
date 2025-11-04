@@ -38,7 +38,8 @@ npm install
 3. Create a `.env.local` file in the root:
 
 ```env
-NEXT_PUBLIC_HOST=http://localhost:3000
+NEXT_PUBLIC_HOST=http://localhost:3000 // Your Domain Name or Or Localhost
+MONGO_URI = "Your Mongo Adress"
 ```
 
 4. Run the development server:
