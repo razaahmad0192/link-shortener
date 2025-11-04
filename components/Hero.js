@@ -146,7 +146,7 @@ function Hero() {
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
                             <span className="font-bold text-lg"> Your Link</span>
-                            <code>
+                            <code className="text-sm">
                                 <Link target="_blank" href={generated} className="underline hover:text-cyan-400">
                                     {generated}
                                 </Link>
