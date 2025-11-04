@@ -17,8 +17,7 @@ A modern, responsive URL shortener built with **Next.js**, **React**, **Tailwind
 
 ## Demo
 
-Add your hosted project link or screenshot here.
-
+https://fitlinks-url.vercel.app/
 ---
 
 ## Installation
