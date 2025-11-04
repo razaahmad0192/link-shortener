@@ -29,12 +29,12 @@ export default function LocalLinks() {
             <ul className="flex mt-4 flex-col gap-3">
                 {links.map((link, index) => (
                     <li key={index} className="bg-gray-800 p-3 rounded-md flex justify-between items-center">
-                        <Link href={link} target="_blank" className="underline text-cyan-400">
+                        <Link href={link} target="_blank" className="underline text-sm md:text-base text-cyan-400">
                             {link}
                         </Link>
                         <button
                             
-                            className="text-red-500 hover:text-red-700 font-semibold"
+                            className="text-red-500 hover:text-red-700 text-sm md:text-base  font-semibold"
                             onClick={() => {
                                 const updated = links.filter(l => l !== link)
                                 setLinks(updated)
