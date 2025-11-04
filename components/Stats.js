@@ -1,6 +1,6 @@
 import React from 'react'
 import { BarChart3, Clock, Wand2 } from "lucide-react";
-
+import Link from 'next/link';
 function Stats() {
     return (
         <section className='bg-gray-200 min-h-[80vh] '>
@@ -72,9 +72,11 @@ function Stats() {
                     </h2>
                     <span>
 
-                        <button className='hover:bg-cyan-500 cursor-pointer px-8 rounded-full text-gray-100 text-lg font-bold   py-3 bg-cyan-400'>
+                       <Link href="/">
+                       <button className='hover:bg-cyan-500 cursor-pointer px-8 rounded-full text-gray-100 text-lg font-bold   py-3 bg-cyan-400'>
                             Get Started
                         </button>
+                       </Link> 
                     </span>
                 </div>
 
