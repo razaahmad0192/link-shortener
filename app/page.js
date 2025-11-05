@@ -9,6 +9,7 @@ function page() {
     <Navbar/>
     <Hero/>
     <Stats/>
+    
     <Footer/>
     </>
   )
